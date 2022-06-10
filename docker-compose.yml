@@ -1,0 +1,25 @@
+# version: '3.8'
+# services:
+#   virtualclassroom:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - 8000:8000
+
+
+# .......................
+
+    # depends_on:
+    #   - virtualclassroom_db  
+  # virtualclassroom_db:
+  #   image: mysql:5.7.22
+  #   environment:
+  #     MYSQL_DATABASE: virtualclassroom
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: 
+  #     MYSQL_ROOT_PASSWORD: 
+  #   volumes:
+  #     - ./storage/dbdata:/var/lib/mysql
+  #   ports:
+  #     - 33060:3306   

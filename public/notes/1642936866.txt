@@ -1,0 +1,73 @@
+ <--how submit form data from front-end to back-end api.-->
+
+ step-1 -- Using class component.
+
+	1.1). 	  Create your form inside return method of render function
+		  for exe:- <form method="POST" OnSubmit={submithandler}></form>
+		  Note:-    submithandler is a function which will be written below the constructor.
+
+	1.2).     Every input <tag> must have its own handle
+		  for exe:- <input type="text" name="">
+			    onChange={namehandler}
+			    onSubmit={namehandler}
+
+	1.3).     Required create handler for submit button
+		  for exe:- <button type="submit" onClick={clickhandler}>click me</button>
+
+	1.4).     Handler function are made to set the event as target value for our satate variables.
+
+	1.5).  	  You make arrow function() =>{}then there is no need to bind events in constructor.
+		  otherwise every handler has to be binded.
+		  for exe:- construcotor()
+			    {
+			      super();
+			      this.stat={
+				name:' ',
+				
+				}
+				this.namehandler=this.namehandler.bind(this)
+			    }
+                            namehandler()
+			    {this.setState({name:e.target.value})}
+		  Note:- create as many state variables as form element.
+
+	1.6).     Change of state can either be done in repective handlers or during mounting stage but componentdidmount is render only once.	
+
+	1.7).	  Use axios.post('url').then()to submit the data backend Api using the url
+
+
+
+  <--How to write service.js -->
+ 
+     step-2---
+
+	2.1).	npm install axios to install axios or use fetch method for data communication.
+
+	2.2).	Declare all the variable as constant which will be used for connecting backend api with frontend api.
+		for exe:- const employeeservice = axios.get/axios.post('url')
+			  within the url quotes use string concatination for update and delete api
+		          'url'+'"+(id)+"' or 'url'+`{id}`
+
+	2.3).	export all the constant variables as a last line
+		for exe:-  export{employeeservice,employeedelete}	
+
+  <--How to user axios.post on forms submission -->
+
+          	submithandler(){
+			data={name:this.state.name,email:this.state.email}
+			axios.post('url',data)
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
